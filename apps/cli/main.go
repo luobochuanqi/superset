@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/luobochuanqi/superset/cmd"
 	"log"
 	"net/url"
+
+	"github.com/luobochuanqi/superset/apps/cli/cmd"
 )
 
 type URLValue struct {

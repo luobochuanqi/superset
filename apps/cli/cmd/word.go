@@ -1,10 +1,11 @@
 package cmd
 
 import (
-	"github.com/luobochuanqi/superset/internal/word"
-	"github.com/spf13/cobra"
 	"log"
 	"strings"
+
+	"github.com/luobochuanqi/superset/apps/cli/internal/word"
+	"github.com/spf13/cobra"
 )
 
 const (
@@ -15,8 +16,10 @@ const (
 	ModeCamelCaseToUnderscore                 // 驼峰转下划线
 )
 
-var str string
-var mode int8
+var (
+	str  string
+	mode int8
+)
 
 var desc = strings.Join([]string{
 	"该子命令支持各种单词格式转换，模式如下：",

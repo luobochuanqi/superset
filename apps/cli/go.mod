@@ -1,4 +1,4 @@
-module github.com/luobochuanqi/superset
+module github.com/luobochuanqi/superset/apps/cli
 
 go 1.26.4
 

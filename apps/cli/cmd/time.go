@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/luobochuanqi/superset/internal/timer"
+	"github.com/luobochuanqi/superset/apps/cli/internal/timer"
 	"github.com/spf13/cobra"
 )
 
