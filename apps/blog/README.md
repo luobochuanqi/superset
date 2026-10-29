@@ -23,3 +23,15 @@
 文章表: blog_article
 标签表: blog_tag
 文章标签关联表: blog_article_tag
+
+## 快速开始
+
+```bash
+podman compose up -d          # 首次启动自动执行 scripts/schema.sql 建表
+podman exec -it blog-mysql mysql -uroot -proot blog   # 进入 SQL 交互终端练手
+```
+
+- 数据库 `blog`，root 密码 `root`，端口 `3306`
+- 改了 `scripts/schema.sql` 想重来：`podman compose down -v && podman compose up -d`（`-v` 删数据卷，触发重新建表）
+- 国内网络拉不动镜像时，先在 podman 机器里走代理预拉（端口按你的代理改）：
+  `podman machine ssh "sudo env HTTPS_PROXY=http://127.0.0.1:7897 podman pull mysql:8.4"`
