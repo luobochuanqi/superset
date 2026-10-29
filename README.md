@@ -1,6 +1,9 @@
 # superset
 
-一个基于 [cobra](https://github.com/spf13/cobra) 的命令行小工具，提供单词格式转换与时间计算。
+Go 实践项目集合（monorepo），持续沉淀为一个完整的作品：
+
+- **根目录** — 基于 [cobra](https://github.com/spf13/cobra) 的 CLI 小工具，提供单词格式转换与时间计算
+- **`blog/`** — 基于 [Gin](https://github.com/gin-gonic/gin) 的博客系统（教程实践中）
 
 ## 功能
 
@@ -50,4 +53,14 @@ superset time calc -t "2026-01-01 10:00" -d 1h30m
 
 ```bash
 superset --help
+```
+
+## blog
+
+Gin 博客系统（实践进行中），独立子模块：
+
+```bash
+cd blog
+go run .                       # 启动 http://localhost:8080
+curl http://localhost:8080/ping   # {"message":"pong"}
 ```
