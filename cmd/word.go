@@ -1,11 +1,10 @@
 package cmd
 
 import (
-	"log"
-	"strings"
-
 	"github.com/luobochuanqi/superset/internal/word"
 	"github.com/spf13/cobra"
+	"log"
+	"strings"
 )
 
 const (

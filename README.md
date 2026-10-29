@@ -1,6 +1,6 @@
 # superset
 
-一个基于 [cobra](https://github.com/spf13/cobra) 的命令行小工具，提供单词格式转换。
+一个基于 [cobra](https://github.com/spf13/cobra) 的命令行小工具，提供单词格式转换与时间计算。
 
 ## 功能
 
@@ -22,6 +22,8 @@ go install github.com/luobochuanqi/superset@latest
 
 ## 使用
 
+### word
+
 ```bash
 superset word -s hello_world -m 3
 # 转换结果：HelloWorld
@@ -32,8 +34,20 @@ superset word -s hello_world -m 3
 - `-s, --string`：需要转换的字符串
 - `-m, --mode`：转换模式（1-5）
 
+### time
+
+```bash
+superset time now
+# 当前时间：2026-01-02 15:04:05, 1735824245
+
+superset time calc -t "2026-01-01 10:00" -d 1h30m
+# 计算结果：2026-01-01 11:30, 1767267000
+```
+
+`calc` 在基准时间（`-t` 省略时为当前时间）上加上时间间隔 `-d`，`-t` 支持三种格式：`2006-01-02`、`2006-01-02 15:04`、`2006-01-02 15:04:05`。
+
 查看帮助：
 
 ```bash
-superset word --help
+superset --help
 ```
