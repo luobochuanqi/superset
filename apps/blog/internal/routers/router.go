@@ -19,11 +19,13 @@ func NewRouter() *gin.Engine {
 		新增标签		POST	/tags
 		删除指定标签	DELETE	/tags/:id
 		更新指定标签	PUT		/tags/:id
+		获取指定标签	GET		/tags/:id
 		获取标签列表	GET		/tags
 		*/
 		apiv1.POST("/tags", tag.Create)
 		apiv1.DELETE("/tags/:id", tag.Delete)
 		apiv1.PUT("/tags/:id", tag.Update)
+		apiv1.GET("/tags/:id", tag.Get)
 		apiv1.GET("/tags", tag.List)
 
 		/**
