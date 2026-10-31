@@ -24,14 +24,19 @@
 标签表: blog_tag
 文章标签关联表: blog_article_tag
 
+> 一篇文章有多个标签、一个标签属于多篇文章——这叫多对多，两张表直接外键是表达不了的，必须拆出中间表 blog_article_tag，每行 = "文章 1 ↔ 标签 Go" 这样一条配对。
+
+> GET：读取/检索动作。
+> POST：新增/新建动作。
+> PUT：更新动作，用于更新一个完整的资源，要求为幂等。
+> PATCH：更新动作，用于更新某一个资源的一个组成部分，也就是只需要更新该资源的某一项，就应该使用 PATCH 而不是 PUT，可以不幂等。
+> DELETE：删除动作。
+
 ## 快速开始
 
 ```bash
 podman compose up -d          # 首次启动自动执行 scripts/schema.sql 建表
-podman exec -it blog-mysql mysql -uroot -proot blog   # 进入 SQL 交互终端练手
 ```
 
 - 数据库 `blog`，root 密码 `root`，端口 `3306`
 - 改了 `scripts/schema.sql` 想重来：`podman compose down -v && podman compose up -d`（`-v` 删数据卷，触发重新建表）
-- 国内网络拉不动镜像时，先在 podman 机器里走代理预拉（端口按你的代理改）：
-  `podman machine ssh "sudo env HTTPS_PROXY=http://127.0.0.1:7897 podman pull mysql:8.4"`
